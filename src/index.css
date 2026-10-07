@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-papel: #eef1f6;
+  --color-tinta: #101a4d;
+  --color-cobalto: #2b3fe0;
+  --color-sol: #ffd23f;
+  --color-humo: #56608a;
+  --font-sans: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sol);
+  outline-offset: 3px;
+}
+
+/* Símbolos de código que suben por el fondo del inicio */
+@keyframes subir {
+  from { top: 105%; transform: rotate(0deg); }
+  to { top: -10%; transform: rotate(25deg); }
+}
+
+.simbolo {
+  animation: subir linear infinite;
+}
+
+/* Cursor del texto que se escribe */
+@keyframes parpadeo {
+  50% { opacity: 0; }
+}
+
+.cursor {
+  animation: parpadeo 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simbolo { display: none; }
+  .cursor { animation: none; }
+}
